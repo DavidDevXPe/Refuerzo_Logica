@@ -917,237 +917,237 @@
 //     }
 // }
 
-const customer = "David";
-const ticketPrice = 45;
-const quantity = 4;
-const availableTickets = 20;
-const budget = 200;
-const isMember = true;
-const hasPromoCode = true;
-const isWeekend = true;
-const isEventCancelled = false;
+// const customer = "David";
+// const ticketPrice = 45;
+// const quantity = 4;
+// const availableTickets = 20;
+// const budget = 200;
+// const isMember = true;
+// const hasPromoCode = true;
+// const isWeekend = true;
+// const isEventCancelled = false;
 
-if (ticketPrice <= 0) {
-    console.log("El precio del ticket debe ser mayor que 0");
-} else if (quantity <= 0) {
-    console.log("La cantidad de tickets tiene que ser mayor a 0");
-} else if (availableTickets < 0) {
-    console.log("La disponibilidad de entradas no puede ser negativa");
-} else if (budget < 0) {
-    console.log("El presupuesto no puede ser negativo");
-} else {
+// if (ticketPrice <= 0) {
+//     console.log("El precio del ticket debe ser mayor que 0");
+// } else if (quantity <= 0) {
+//     console.log("La cantidad de tickets tiene que ser mayor a 0");
+// } else if (availableTickets < 0) {
+//     console.log("La disponibilidad de entradas no puede ser negativa");
+// } else if (budget < 0) {
+//     console.log("El presupuesto no puede ser negativo");
+// } else {
 
-    if (isEventCancelled) {
-        console.log("Evento cancelado");
-    } else if (quantity > availableTickets) {
-        console.log("Entradas insuficientes");
-    } else {
+//     if (isEventCancelled) {
+//         console.log("Evento cancelado");
+//     } else if (quantity > availableTickets) {
+//         console.log("Entradas insuficientes");
+//     } else {
 
-        const subTotal = ticketPrice * quantity;
-        let precioConDescuento = subTotal;
-        let descuentoMiembro = 0;
+//         const subTotal = ticketPrice * quantity;
+//         let precioConDescuento = subTotal;
+//         let descuentoMiembro = 0;
         
-        if (isMember) {
-            descuentoMiembro = 0.1;
-            precioConDescuento -= precioConDescuento * descuentoMiembro;
-        }
+//         if (isMember) {
+//             descuentoMiembro = 0.1;
+//             precioConDescuento -= precioConDescuento * descuentoMiembro;
+//         }
         
-        let descuentoCodigo = 0;
+//         let descuentoCodigo = 0;
         
-        if (hasPromoCode) {
-            descuentoCodigo = 0.05;
-            precioConDescuento -= precioConDescuento * descuentoCodigo;
-        }
+//         if (hasPromoCode) {
+//             descuentoCodigo = 0.05;
+//             precioConDescuento -= precioConDescuento * descuentoCodigo;
+//         }
         
-        let recargoFinDeSemana = 0;
-        let finDeSemana = "No";
+//         let recargoFinDeSemana = 0;
+//         let finDeSemana = "No";
         
-        if (isWeekend) {
-            finDeSemana = "Sí"
-            recargoFinDeSemana = 0.15;
-            precioConDescuento += precioConDescuento * recargoFinDeSemana;
-        }
+//         if (isWeekend) {
+//             finDeSemana = "Sí"
+//             recargoFinDeSemana = 0.15;
+//             precioConDescuento += precioConDescuento * recargoFinDeSemana;
+//         }
     
-        let status = "Reserva confirmada";
+//         let status = "Reserva confirmada";
     
-        if (precioConDescuento > budget) {
-            status = "Presupuesto insuficiente";
-            console.log(`Estado: ${status}`);
-        } else {
+//         if (precioConDescuento > budget) {
+//             status = "Presupuesto insuficiente";
+//             console.log(`Estado: ${status}`);
+//         } else {
     
-            const entradasRestantes = availableTickets - quantity;
-            const presupuestoRestante = budget - precioConDescuento;
+//             const entradasRestantes = availableTickets - quantity;
+//             const presupuestoRestante = budget - precioConDescuento;
     
-            console.log(`Cliente: ${customer}
-                        Cantidad: ${quantity}
-                        Subtotal: S/${subTotal.toFixed(2)}
-                        Descuento miembro: ${descuentoMiembro * 100}%
-                        Código promocional: ${descuentoCodigo * 100}%
-                        Fin de semana: ${finDeSemana}
-                        Recargo: ${recargoFinDeSemana * 100}%
-                        Total: S/${precioConDescuento.toFixed(2)}
-                        Entradas restantes: ${entradasRestantes}
-                        Presupuesto restante: S/${presupuestoRestante.toFixed(2)}
-                        Estado: ${status}`);
-        }
-    }
-}
+//             console.log(`Cliente: ${customer}
+//                         Cantidad: ${quantity}
+//                         Subtotal: S/${subTotal.toFixed(2)}
+//                         Descuento miembro: ${descuentoMiembro * 100}%
+//                         Código promocional: ${descuentoCodigo * 100}%
+//                         Fin de semana: ${finDeSemana}
+//                         Recargo: ${recargoFinDeSemana * 100}%
+//                         Total: S/${precioConDescuento.toFixed(2)}
+//                         Entradas restantes: ${entradasRestantes}
+//                         Presupuesto restante: S/${presupuestoRestante.toFixed(2)}
+//                         Estado: ${status}`);
+//         }
+//     }
+// }
 
-const employee = "David";
-const baseSalary = 1800;
-const overtimeHours = 8;
-const overtimeRate = 15;
-const lateDays = 2;
-const completedGoals = 95;
-const hasSeriousFault = false;
-const isSupervisor = true;
+// const employee = "David";
+// const baseSalary = 1800;
+// const overtimeHours = 8;
+// const overtimeRate = 15;
+// const lateDays = 2;
+// const completedGoals = 95;
+// const hasSeriousFault = false;
+// const isSupervisor = true;
 
-if (baseSalary <= 0) {
-    console.log("El sueldo base tiene que ser mayor a 0");
-} else if (overtimeHours < 0) {
-    console.log("Las horas extras no pueden ser negativas");
-} else if (overtimeRate <= 0) {
-    console.log("La tarifa de horas extras deben ser mayor que 0");
-} else if (lateDays < 0) {
-    console.log("Los días de retraso no pueden ser negativas");
-} else if (completedGoals < 0 || completedGoals > 100) {
-    console.log("Los objetivos completados estan fuera del rango establecido de 0 a 100");
-} else {
+// if (baseSalary <= 0) {
+//     console.log("El sueldo base tiene que ser mayor a 0");
+// } else if (overtimeHours < 0) {
+//     console.log("Las horas extras no pueden ser negativas");
+// } else if (overtimeRate <= 0) {
+//     console.log("La tarifa de horas extras deben ser mayor que 0");
+// } else if (lateDays < 0) {
+//     console.log("Los días de retraso no pueden ser negativas");
+// } else if (completedGoals < 0 || completedGoals > 100) {
+//     console.log("Los objetivos completados estan fuera del rango establecido de 0 a 100");
+// } else {
     
-    const horasExtras = overtimeHours * overtimeRate;
-    let sueldoFinal = baseSalary + horasExtras;
-    let bonoMetas = 0;
-    let bonoSupervisor = 0;
-    let descuentoFalta = 0;
-    const status = "Pago procesado";
+//     const horasExtras = overtimeHours * overtimeRate;
+//     let sueldoFinal = baseSalary + horasExtras;
+//     let bonoMetas = 0;
+//     let bonoSupervisor = 0;
+//     let descuentoFalta = 0;
+//     const status = "Pago procesado";
 
-    if (hasSeriousFault) {
+//     if (hasSeriousFault) {
 
-        const descuentoFaltaGrave = 0.2;
-        descuentoFalta = baseSalary * descuentoFaltaGrave;
-        sueldoFinal -= baseSalary * descuentoFaltaGrave;
+//         const descuentoFaltaGrave = 0.2;
+//         descuentoFalta = baseSalary * descuentoFaltaGrave;
+//         sueldoFinal -= baseSalary * descuentoFaltaGrave;
 
-    } else {
+//     } else {
 
-        let porcentajeBonoMetas = 0;
+//         let porcentajeBonoMetas = 0;
 
-        if (completedGoals >= 90) {
-            porcentajeBonoMetas = 0.12
-        } else if (completedGoals >= 80) {
-            porcentajeBonoMetas = 0.07;
-        } else if (completedGoals >= 70) {
-            porcentajeBonoMetas = 0.03;
-        }
+//         if (completedGoals >= 90) {
+//             porcentajeBonoMetas = 0.12
+//         } else if (completedGoals >= 80) {
+//             porcentajeBonoMetas = 0.07;
+//         } else if (completedGoals >= 70) {
+//             porcentajeBonoMetas = 0.03;
+//         }
 
-        sueldoFinal += baseSalary * porcentajeBonoMetas;
-        bonoMetas = baseSalary * porcentajeBonoMetas;
-        let porcentajeBonoSupervisor = 0;
+//         sueldoFinal += baseSalary * porcentajeBonoMetas;
+//         bonoMetas = baseSalary * porcentajeBonoMetas;
+//         let porcentajeBonoSupervisor = 0;
 
-        if (isSupervisor) {
-            porcentajeBonoSupervisor = 0.05;
-            sueldoFinal += baseSalary * porcentajeBonoSupervisor;
-        }
-        bonoSupervisor = baseSalary * porcentajeBonoSupervisor
-    }
+//         if (isSupervisor) {
+//             porcentajeBonoSupervisor = 0.05;
+//             sueldoFinal += baseSalary * porcentajeBonoSupervisor;
+//         }
+//         bonoSupervisor = baseSalary * porcentajeBonoSupervisor
+//     }
 
-    let porcentajeTardanza = 0;
+//     let porcentajeTardanza = 0;
 
-    if (lateDays >= 5) {
-        porcentajeTardanza = 0.12;
-    } else if (lateDays >= 3) {
-        porcentajeTardanza = 0.07;
-    } else if (lateDays >= 1) {
-        porcentajeTardanza = 0.03;
-    } 
+//     if (lateDays >= 5) {
+//         porcentajeTardanza = 0.12;
+//     } else if (lateDays >= 3) {
+//         porcentajeTardanza = 0.07;
+//     } else if (lateDays >= 1) {
+//         porcentajeTardanza = 0.03;
+//     } 
 
-    sueldoFinal -= baseSalary * porcentajeTardanza;
-    const descuentoTardanza = baseSalary * porcentajeTardanza;
+//     sueldoFinal -= baseSalary * porcentajeTardanza;
+//     const descuentoTardanza = baseSalary * porcentajeTardanza;
 
-    console.log(`Empleado: ${employee}
-                Sueldo base:        S/${baseSalary.toFixed(2)}
-                Horas extras:        S/${horasExtras.toFixed(2)}
-                Bono metas:          S/${bonoMetas.toFixed(2)}
-                Bono supervisor:      S/${bonoSupervisor.toFixed(2)}
-                Descuento tardanzas:  S/${descuentoTardanza.toFixed(2)}
-                Descuento Falta:     S/${descuentoFalta}
-                Estado: ${status}
-                -------------------------
-                Sueldo final:       ${sueldoFinal.toFixed(2)}`);
+//     console.log(`Empleado: ${employee}
+//                 Sueldo base:        S/${baseSalary.toFixed(2)}
+//                 Horas extras:        S/${horasExtras.toFixed(2)}
+//                 Bono metas:          S/${bonoMetas.toFixed(2)}
+//                 Bono supervisor:      S/${bonoSupervisor.toFixed(2)}
+//                 Descuento tardanzas:  S/${descuentoTardanza.toFixed(2)}
+//                 Descuento Falta:     S/${descuentoFalta}
+//                 Estado: ${status}
+//                 -------------------------
+//                 Sueldo final:       ${sueldoFinal.toFixed(2)}`);
     
-}
+// }
 
-const client = "David";
-const monthlyIncome = 4500;
-const requestedLoan = 12000;
-const currentDebt = 1500;
-const creditScore = 480;
-const yearsAsClient = 4;
-const hasLatePayments = false;
-const hasFraudAlert = false;
+// const client = "David";
+// const monthlyIncome = 4500;
+// const requestedLoan = 12000;
+// const currentDebt = 1500;
+// const creditScore = 480;
+// const yearsAsClient = 4;
+// const hasLatePayments = false;
+// const hasFraudAlert = false;
 
-if (monthlyIncome <= 0) {
-    console.log("Los ingresos mensuales tienen que ser mayor a 0");
-} else if (requestedLoan <= 0) {
-    console.log("El prestamo solicitado tiene que ser mayor a 0");
-} else if (currentDebt < 0) {
-    console.log("La deuda actual no puede ser negativa");
-} else if (creditScore < 300 || creditScore > 850) {
-    console.log("El puntaje de credito esta fuera del rango establecido de 300 a 850 ");
-} else if (yearsAsClient < 0) {
-    console.log("Los años como cliente no pueden ser negativos");
-} else {
+// if (monthlyIncome <= 0) {
+//     console.log("Los ingresos mensuales tienen que ser mayor a 0");
+// } else if (requestedLoan <= 0) {
+//     console.log("El prestamo solicitado tiene que ser mayor a 0");
+// } else if (currentDebt < 0) {
+//     console.log("La deuda actual no puede ser negativa");
+// } else if (creditScore < 300 || creditScore > 850) {
+//     console.log("El puntaje de credito esta fuera del rango establecido de 300 a 850 ");
+// } else if (yearsAsClient < 0) {
+//     console.log("Los años como cliente no pueden ser negativos");
+// } else {
 
-    const capacidadMaxima = monthlyIncome * 4;
+//     const capacidadMaxima = monthlyIncome * 4;
     
-    if (hasFraudAlert) {
-        console.log("Crédito Rechazado")
-    } else if(requestedLoan > capacidadMaxima) {
-        console.log("Monto solicitado excede capacidad");
-    } else {
+//     if (hasFraudAlert) {
+//         console.log("Crédito Rechazado")
+//     } else if(requestedLoan > capacidadMaxima) {
+//         console.log("Monto solicitado excede capacidad");
+//     } else {
 
-        let riesgo = "";
+//         let riesgo = "";
         
-        if (creditScore < 650) {
-            riesgo = "Alto";
-        } else if (creditScore < 750) {
-            riesgo = "Medio";
-        } else if (creditScore <= 850) {
-            riesgo = "Bajo";
-        }
+//         if (creditScore < 650) {
+//             riesgo = "Alto";
+//         } else if (creditScore < 750) {
+//             riesgo = "Medio";
+//         } else if (creditScore <= 850) {
+//             riesgo = "Bajo";
+//         }
         
-        let internalScore = 0;
+//         let internalScore = 0;
         
-        if (yearsAsClient >= 3) {
-            internalScore = 5
-        }
+//         if (yearsAsClient >= 3) {
+//             internalScore = 5
+//         }
         
-        if (currentDebt > (monthlyIncome * 0.5)) {
-            internalScore -= 10;
-        }
+//         if (currentDebt > (monthlyIncome * 0.5)) {
+//             internalScore -= 10;
+//         }
         
-        if (hasLatePayments) {
-            internalScore -= 20;
-        }
+//         if (hasLatePayments) {
+//             internalScore -= 20;
+//         }
         
-        let status = "" ;
+//         let status = "" ;
 
-        if (riesgo === "Alto") {
-            status = "Crédito Rechazado";
-        } else if (riesgo === "Medio" && internalScore < 0) {
-            status = "Crédito Rechazado";
-        }else {
-            status = "Crédito Aprobado"
-        }
+//         if (riesgo === "Alto") {
+//             status = "Crédito Rechazado";
+//         } else if (riesgo === "Medio" && internalScore < 0) {
+//             status = "Crédito Rechazado";
+//         }else {
+//             status = "Crédito Aprobado"
+//         }
 
-            console.log(`Cliente: ${client}
-                        Ingreso mensual: S/${monthlyIncome}
-                        Préstamo solicitado: S/${requestedLoan}
-                        Capacidad máxima: S/${capacidadMaxima}
-                        Riesgo: ${riesgo}
-                        Puntaje interno: ${internalScore}
-                        Estado: ${status}`)
-        }
-}
+//             console.log(`Cliente: ${client}
+//                         Ingreso mensual: S/${monthlyIncome}
+//                         Préstamo solicitado: S/${requestedLoan}
+//                         Capacidad máxima: S/${capacidadMaxima}
+//                         Riesgo: ${riesgo}
+//                         Puntaje interno: ${internalScore}
+//                         Estado: ${status}`)
+//         }
+// }
 
 // const supplier = "PROVEEDOR NORTE";
 // const orderAmount = 8500;
@@ -1239,48 +1239,115 @@ if (monthlyIncome <= 0) {
 //     }
 // }
 
-const product = "Mango congelado";
-const requestedKg = 4200;
-const stockKg = 7000;
-const reservedKg = 1500;
-const truckCapacityKg = 5000;
-const pricePerKg = 3.5;
-const availableBudget = 16000;
-const qualityScore = 88;
-const hasQualityAlert = false;
-const isUrgent = true;
+// const product = "Mango congelado";
+// const requestedKg = 4200;
+// const stockKg = 7000;
+// const reservedKg = 1500;
+// const truckCapacityKg = 5000;
+// const pricePerKg = 3.5;
+// const availableBudget = 16000;
+// const qualityScore = 88;
+// const hasQualityAlert = false;
+// const isUrgent = true;
 
-if (requestedKg <= 0) {
-    console.log("Los Kg solicitados tiene que ser mayor que 0");
-} else if (stockKg < 0) {
-    console.log("Los Kg en stock no pueden ser negativos");
-} else if (reservedKg < 0) {
-    console.log("Los Kg reservados no puedes ser negativos");
-} else if (reservedKg > stockKg) {
-    console.log("Los Kg de reserva no pueden ser mayor a los Kg en stock");
-} else if (truckCapacityKg <= 0) {
-    console.log("La capacidad en Kg del camión tiene que ser mayor que 0");
-} else if (pricePerKg <= 0) {
-    console.log("pricePerKg tiene que ser mayor que 0")
-} else if (availableBudget < 0) {
-    console.log("El presupuesto disponible no puede ser negativo");
-} else if (qualityScore < 0 || qualityScore > 100) {
-    console.log("La puntuación de calidad debe estar entre 0 a 100");
-} else {
+// if (requestedKg <= 0) {
+//     console.log("Los Kg solicitados tiene que ser mayor que 0");
+// } else if (stockKg < 0) {
+//     console.log("Los Kg en stock no pueden ser negativos");
+// } else if (reservedKg < 0) {
+//     console.log("Los Kg reservados no puedes ser negativos");
+// } else if (reservedKg > stockKg) {
+//     console.log("Los Kg de reserva no pueden ser mayor a los Kg en stock");
+// } else if (truckCapacityKg <= 0) {
+//     console.log("La capacidad en Kg del camión tiene que ser mayor que 0");
+// } else if (pricePerKg <= 0) {
+//     console.log("pricePerKg tiene que ser mayor que 0")
+// } else if (availableBudget < 0) {
+//     console.log("El presupuesto disponible no puede ser negativo");
+// } else if (qualityScore < 0 || qualityScore > 100) {
+//     console.log("La puntuación de calidad debe estar entre 0 a 100");
+// } else {
 
-    const stockDisponible = stockKg - reservedKg;
-    console.log(stockDisponible);
-    console.log(`Producto:
-                Kg solicitados:
-                Stock físico:
-                Stock reservado:
-                Stock disponible:
-                Capacidad base:
-                Capacidad permitida:
-                Urgente:
-                Clasificación de calidad:
-                Costo:
-                Stock restante:
-                Presupuesto restante:
-                Estado:`);
-}
+//     const stockDisponible = stockKg - reservedKg;
+//     let status = "";
+
+//     if (hasQualityAlert) {
+//         status = "Despacho bloqueado por calidad";
+//         console.log(`Estado: ${status}`);
+//     } else {
+
+//         let clasificacion = "";
+        
+//         if (qualityScore < 70) {
+//             clasificacion = "Rechazada";
+//         } else if (qualityScore < 80) {
+//             clasificacion = "Observada";
+//         } else if (qualityScore < 90) {
+//             clasificacion = "Aprobada";
+//         } else {
+//             clasificacion = "Excelente";
+//         }
+        
+//         let capacidadPermitida = truckCapacityKg;
+//         let urgente = "No";
+        
+//         if (isUrgent) {
+//             urgente = "Sí";
+//             capacidadPermitida += capacidadPermitida * 0.1;
+//         }
+
+//         const costoPedido = requestedKg * pricePerKg;
+
+//         if (requestedKg > stockDisponible) {
+//             status = "Stock disponible insuficiente";
+//             console.log(`Estado: ${status}`);
+//         } else if (requestedKg > capacidadPermitida) {
+//             status = "Capacidad de transporte excedida";
+//             console.log(`Estado: ${status}`);
+//         } else if (costoPedido > availableBudget) {
+//             status = "Presupuesto insuficiente";
+//             console.log(`Estado: ${status}`);
+//         } else if (clasificacion === "Rechazada") {
+//             status = "Despacho Rechazado"
+//             console.log(`Estado: ${status}`);
+//         } else if (clasificacion === "Observada" && !isUrgent) {
+//             status = "Despacho requiere revisión";
+//             console.log(`Estado: ${status}`);
+//         } else {
+
+//             status = "Despacho Aprobado"
+//             const stockRestante = stockDisponible - requestedKg;
+//             const presupuestoRestante = availableBudget - costoPedido;
+
+//             console.log(`Producto: ${product}
+//                         Kg solicitados: ${requestedKg}
+//                         Stock físico: ${stockKg}
+//                         Stock reservado: ${reservedKg}
+//                         Stock disponible: ${stockDisponible}
+//                         Capacidad base: ${truckCapacityKg}
+//                         Capacidad permitida: ${capacidadPermitida}
+//                         Urgente: ${urgente}
+//                         Clasificación de calidad: ${clasificacion}
+//                         Costo: ${costoPedido}
+//                         Stock restante: ${stockRestante}
+//                         Presupuesto restante: ${presupuestoRestante}
+//                         Estado: ${status}`);
+//         }
+//     }
+// }
+
+const customer = "Cliente Mayorista Norte";
+const orderAmount = 7200;
+const availableCredit = 10000;
+const currentDebt = 1800;
+const creditLimit = 12000;
+const customerScore = 76;
+const yearsAsCustomer = 5;
+const hasOverdueDebt = false;
+const isPreferredCustomer = true;
+const isAccountBlocked = false;
+
+
+
+
+
