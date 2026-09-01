@@ -1336,18 +1336,153 @@
 //     }
 // }
 
-const customer = "Cliente Mayorista Norte";
-const orderAmount = 7200;
-const availableCredit = 10000;
-const currentDebt = 1800;
-const creditLimit = 12000;
-const customerScore = 76;
-const yearsAsCustomer = 5;
-const hasOverdueDebt = false;
-const isPreferredCustomer = true;
-const isAccountBlocked = false;
+// const customer = "Cliente Mayorista Norte";
+// const orderAmount = 7200;
+// const availableCredit = 10000;
+// const currentDebt = 1800;
+// const creditLimit = 12000;
+// const customerScore = 76;
+// const yearsAsCustomer = 5;
+// const hasOverdueDebt = false;
+// const isPreferredCustomer = true;
+// const isAccountBlocked = false;
+
+// if (orderAmount <= 0) {
+//     console.log("El monto pedido debe ser mayor que 0");
+// } else if (availableCredit < 0) {
+//     console.log("El crédito disponible no puede ser negativo");
+// } else if (currentDebt < 0) {
+//     console.log("La deuda actual no puede ser negativo");
+// } else if (creditLimit <= 0) {
+//     console.log("El límite de crédito debe ser mayor que 0");
+// } else if (customerScore < 0 || customerScore > 100) {
+//     console.log("La puntuación del cliente debe estar entre 0 y 100");
+// } else if (yearsAsCustomer < 0) {
+//     console.log("Los años como cliente no pueden ser negativos");
+// } else if (isAccountBlocked) {
+//     console.log("Cuenta bloqueada");
+// } else {
+
+//     let creditoReal = availableCredit - currentDebt;
+//     let estado = ""
+
+//     if (creditoReal < 0) {
+//         creditoReal = 0;
+//     }
+
+//     if (hasOverdueDebt && currentDebt > creditLimit * 0.5) {
+//         estado = "Venta rechazada por mora crítica";
+//         console.log(`Estado: ${estado}`);
+//     } else {
+
+//         const nuevoEndeudamiento = currentDebt + orderAmount;
+    
+//         let clasificacion = "";
+        
+//         if (customerScore < 60) {
+//             clasificacion = "Riesgoso";
+//         } else if (customerScore < 75) {
+//             clasificacion = "Regular";
+//         } else if (customerScore < 90) {
+//             clasificacion = "Bueno";
+//         } else {
+//             clasificacion = "Excelente";
+//         }
+    
+//         let puntajeDeConfianza = 0;
+
+//         if (yearsAsCustomer >= 3) {
+//             puntajeDeConfianza += 10;
+//         }
+
+//         if (isPreferredCustomer) {
+//             puntajeDeConfianza += 10;
+//         }
+
+//         if (hasOverdueDebt) {
+//             puntajeDeConfianza -= 30
+//         }
+
+//         if (orderAmount > creditoReal) {
+//             estado = "Crédito insuficiente";
+//             console.log(`Estado: ${estado}`);
+//         } else if (nuevoEndeudamiento > creditLimit) {
+//             estado = "Límite de crédito excedido";
+//             console.log(`Estado: ${estado}`);
+//         } else if (clasificacion === "Riesgoso") {
+//             estado = "Venta rechazada";
+//             console.log(`Estado: ${estado}`);
+//         } else if (clasificacion === "Regular" && puntajeDeConfianza < 0) {
+//             estado = "Venta rechazada";
+//             console.log(`Estado: ${estado}`);
+//         } else {
+
+//             estado = "Venta Aprobada";
+//             const creditoRestante = creditoReal - orderAmount;
+//             console.log(`Cliente: ${customer}
+//                         Monto pedido: ${orderAmount}
+//                         Crédito disponible inicial: ${availableCredit}
+//                         Deuda actual: ${currentDebt}
+//                         Crédito real: ${creditoReal}
+//                         Límite de crédito: ${creditLimit}
+//                         Nuevo endeudamiento: ${nuevoEndeudamiento}
+//                         Clasificación: ${clasificacion}
+//                         Puntaje de confianza: ${puntajeDeConfianza}
+//                         Crédito restante: ${creditoRestante}
+//                         Estado: ${estado}`);
+//         }
+//     }
+// }
+
+const supplier = "Proveedor Centro";
+const orderAmount = 6400;
+const availableBudget = 9000;
+const monthlyPurchased = 5000;
+const monthlyLimit = 13000;
+const supplierScore = 78;
+const hasPendingDocuments = false;
+const hasPaymentIssue = true;
+const isPreferredSupplier = true;
+const isUrgent = false;
+
+if (orderAmount <= 0) {
+    console.log("El importe del pedido debe ser mayor que 0");
+} else if (availableBudget < 0) {
+    console.log("El presupuesto disponible no puede ser negativo");
+} else if (monthlyPurchased < 0) {
+    console.log("Las compras mensuales no pueden ser negativas");
+} else if (monthlyLimit <= 0) {
+    console.log("El límite mensual debe ser mayor que 0");
+} else if (supplierScore < 0 || supplierScore > 100) {
+    console.log("La puntuación del proveedor debe estar entre 0 y 100")
+} else {
+
+    let clasificacion = "";
+
+    if (supplierScore < 60) {
+        clasificacion = "Riesgoso";
+    } else if (supplierScore < 75) {
+        clasificacion = "Regular";
+    } else if (supplierScore < 90) {
+        clasificacion = "Bueno";
+    } else {
+        clasificacion = "Excelente";
+    }
 
 
+
+
+    console.log(`Proveedor: ${supplier}
+                Monto: ${orderAmount}
+                Presupuesto disponible: ${availableBudget}
+                Compras del mes: ${monthlyPurchased}
+                Límite base: 
+                Límite permitido:
+                Clasificación: ${clasificacion}
+                Puntaje de confianza:
+                Estado de orden:
+                Estado de pago:`)
+}
 
 
 
