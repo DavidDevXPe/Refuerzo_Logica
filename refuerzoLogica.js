@@ -1469,19 +1469,77 @@ if (orderAmount <= 0) {
         clasificacion = "Excelente";
     }
 
+    let trustScore = 0;
+    let limitePermitido = monthlyLimit;
 
+    if (isPreferredSupplier) {
+        trustScore += 15;
+    }
 
+    if (isUrgent) {
+        trustScore += 5;
+        limitePermitido += limitePermitido * 0.1
+    }
 
-    console.log(`Proveedor: ${supplier}
-                Monto: ${orderAmount}
-                Presupuesto disponible: ${availableBudget}
-                Compras del mes: ${monthlyPurchased}
-                Límite base: 
-                Límite permitido:
-                Clasificación: ${clasificacion}
-                Puntaje de confianza:
-                Estado de orden:
-                Estado de pago:`)
+    if (hasPendingDocuments) {
+        trustScore -= 20;
+    }
+
+    const nuevoAcumulado = monthlyPurchased + orderAmount;
+
+    let orderStatus = "";
+    let paymentStatus = "";
+    
+    if (orderAmount > availableBudget) {
+        orderStatus = "Orden rechazada - Presupuesto insuficiente";
+        console.log(`Estado de orden: ${orderStatus}`);
+    } else if (nuevoAcumulado > limitePermitido) {
+        orderStatus = "Orden rechazada - Límite mensual excedido";
+        console.log(`Estado de orden: ${orderStatus}`);
+    } else if (clasificacion === "Riesgoso") {
+        orderStatus = "Orden rechazada - Proveedor riesgoso";
+        console.log(`Estado de orden: ${orderStatus}`);
+    } else if (clasificacion === "Regular" && trustScore < 0) {
+        orderStatus = "Orden rechazada - Confianza insuficiente";
+        console.log(`Estado de orden: ${orderStatus}`);
+    } else {
+
+        orderStatus = "Orden aprobada";
+
+        if (hasPaymentIssue === true) {
+            paymentStatus = "Pago bloqueado"
+        } else {
+            paymentStatus = "Pago autorizado"
+        }
+
+        if (paymentStatus === "Pago autorizado") {
+            const presupuestoRestante = availableBudget - orderAmount;
+            console.log(`Proveedor: ${supplier}
+                        Monto: ${orderAmount}
+                        Presupuesto disponible: ${availableBudget}
+                        Compras del mes: ${monthlyPurchased}
+                        Nuevo Acumulado: ${nuevoAcumulado}
+                        Presupuesto Restante: ${presupuestoRestante}
+                        Límite base: ${monthlyLimit} 
+                        Límite permitido: ${limitePermitido}
+                        Clasificación: ${clasificacion}
+                        Puntaje de confianza: ${trustScore}
+                        Estado de orden: ${orderStatus}
+                        Estado de pago: ${paymentStatus}`)
+        } else {
+            console.log(`Proveedor: ${supplier}
+                        Monto: ${orderAmount}
+                        Presupuesto disponible: ${availableBudget}
+                        Compras del mes: ${monthlyPurchased}
+                        Nuevo Acumulado: ${nuevoAcumulado}
+                        Límite base: ${monthlyLimit} 
+                        Límite permitido: ${limitePermitido}
+                        Clasificación: ${clasificacion}
+                        Puntaje de confianza: ${trustScore}
+                        Estado de orden: ${orderStatus}
+                        Estado de pago: ${paymentStatus}`)
+        }
+    }
 }
 
 
