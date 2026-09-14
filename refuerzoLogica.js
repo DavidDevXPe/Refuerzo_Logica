@@ -1434,113 +1434,198 @@
 //     }
 // }
 
-const supplier = "Proveedor Centro";
-const orderAmount = 6400;
-const availableBudget = 9000;
-const monthlyPurchased = 5000;
-const monthlyLimit = 13000;
-const supplierScore = 78;
-const hasPendingDocuments = false;
-const hasPaymentIssue = true;
-const isPreferredSupplier = true;
-const isUrgent = false;
+// const supplier = "Proveedor Centro";
+// const orderAmount = 6400;
+// const availableBudget = 9000;
+// const monthlyPurchased = 5000;
+// const monthlyLimit = 13000;
+// const supplierScore = 78;
+// const hasPendingDocuments = false;
+// const hasPaymentIssue = true;
+// const isPreferredSupplier = true;
+// const isUrgent = false;
 
-if (orderAmount <= 0) {
-    console.log("El importe del pedido debe ser mayor que 0");
-} else if (availableBudget < 0) {
-    console.log("El presupuesto disponible no puede ser negativo");
-} else if (monthlyPurchased < 0) {
-    console.log("Las compras mensuales no pueden ser negativas");
-} else if (monthlyLimit <= 0) {
-    console.log("El límite mensual debe ser mayor que 0");
-} else if (supplierScore < 0 || supplierScore > 100) {
-    console.log("La puntuación del proveedor debe estar entre 0 y 100")
+// if (orderAmount <= 0) {
+//     console.log("El importe del pedido debe ser mayor que 0");
+// } else if (availableBudget < 0) {
+//     console.log("El presupuesto disponible no puede ser negativo");
+// } else if (monthlyPurchased < 0) {
+//     console.log("Las compras mensuales no pueden ser negativas");
+// } else if (monthlyLimit <= 0) {
+//     console.log("El límite mensual debe ser mayor que 0");
+// } else if (supplierScore < 0 || supplierScore > 100) {
+//     console.log("La puntuación del proveedor debe estar entre 0 y 100")
+// } else {
+
+//     let clasificacion = "";
+
+//     if (supplierScore < 60) {
+//         clasificacion = "Riesgoso";
+//     } else if (supplierScore < 75) {
+//         clasificacion = "Regular";
+//     } else if (supplierScore < 90) {
+//         clasificacion = "Bueno";
+//     } else {
+//         clasificacion = "Excelente";
+//     }
+
+//     let trustScore = 0;
+//     let limitePermitido = monthlyLimit;
+
+//     if (isPreferredSupplier) {
+//         trustScore += 15;
+//     }
+
+//     if (isUrgent) {
+//         trustScore += 5;
+//         limitePermitido += limitePermitido * 0.1
+//     }
+
+//     if (hasPendingDocuments) {
+//         trustScore -= 20;
+//     }
+
+//     const nuevoAcumulado = monthlyPurchased + orderAmount;
+
+//     let orderStatus = "";
+//     let paymentStatus = "";
+    
+//     if (orderAmount > availableBudget) {
+//         orderStatus = "Orden rechazada - Presupuesto insuficiente";
+//         console.log(`Estado de orden: ${orderStatus}`);
+//     } else if (nuevoAcumulado > limitePermitido) {
+//         orderStatus = "Orden rechazada - Límite mensual excedido";
+//         console.log(`Estado de orden: ${orderStatus}`);
+//     } else if (clasificacion === "Riesgoso") {
+//         orderStatus = "Orden rechazada - Proveedor riesgoso";
+//         console.log(`Estado de orden: ${orderStatus}`);
+//     } else if (clasificacion === "Regular" && trustScore < 0) {
+//         orderStatus = "Orden rechazada - Confianza insuficiente";
+//         console.log(`Estado de orden: ${orderStatus}`);
+//     } else {
+
+//         orderStatus = "Orden aprobada";
+
+//         if (hasPaymentIssue === true) {
+//             paymentStatus = "Pago bloqueado"
+//         } else {
+//             paymentStatus = "Pago autorizado"
+//         }
+
+//         if (paymentStatus === "Pago autorizado") {
+//             const presupuestoRestante = availableBudget - orderAmount;
+//             console.log(`Proveedor: ${supplier}
+//                         Monto: ${orderAmount}
+//                         Presupuesto disponible: ${availableBudget}
+//                         Compras del mes: ${monthlyPurchased}
+//                         Nuevo Acumulado: ${nuevoAcumulado}
+//                         Presupuesto Restante: ${presupuestoRestante}
+//                         Límite base: ${monthlyLimit} 
+//                         Límite permitido: ${limitePermitido}
+//                         Clasificación: ${clasificacion}
+//                         Puntaje de confianza: ${trustScore}
+//                         Estado de orden: ${orderStatus}
+//                         Estado de pago: ${paymentStatus}`)
+//         } else {
+//             console.log(`Proveedor: ${supplier}
+//                         Monto: ${orderAmount}
+//                         Presupuesto disponible: ${availableBudget}
+//                         Compras del mes: ${monthlyPurchased}
+//                         Nuevo Acumulado: ${nuevoAcumulado}
+//                         Límite base: ${monthlyLimit} 
+//                         Límite permitido: ${limitePermitido}
+//                         Clasificación: ${clasificacion}
+//                         Puntaje de confianza: ${trustScore}
+//                         Estado de orden: ${orderStatus}
+//                         Estado de pago: ${paymentStatus}`)
+//         }
+//     }
+// }
+
+const employee = "David";
+const expenseAmount = 850;
+const maxReimbursable = 1000;
+const daysAfterExpense = 12;
+const expenseType = "Movilidad";
+const hasValidReceipt = true;
+const supervisorApproved = true;
+const hasPolicyViolation = false;
+const hasBankIssue = true;
+const isPriority = true;
+
+if (expenseAmount <= 0) {
+    console.log("El importe del gasto debe ser mayor que 0");
+} else if (maxReimbursable <= 0) {
+    console.log("El reembolso máximo debe ser mayor que 0");
+} else if (daysAfterExpense < 0) {
+    console.log("Los días después del gasto no pueden ser negativos");
 } else {
 
-    let clasificacion = "";
+    let requestStatus = "";
+    let paymentStatus = "No aplica";
 
-    if (supplierScore < 60) {
-        clasificacion = "Riesgoso";
-    } else if (supplierScore < 75) {
-        clasificacion = "Regular";
-    } else if (supplierScore < 90) {
-        clasificacion = "Bueno";
+    if (hasPolicyViolation === true) {
+        requestStatus = "Solicitud rechazada - Incumplimiento de política";
+        console.log(`Estado: ${requestStatus}`);
+    } else if (hasValidReceipt === false) {
+        requestStatus = "Solicitud rechazada - Comprobante inválido";
+        console.log(`Estado: ${requestStatus}`);
+    } else if (supervisorApproved === false) {
+        requestStatus = "Solicitud pendiente de aprobación";
+        console.log(`Estado: ${requestStatus}`);
+        console.log(`Estado: ${paymentStatus}`);
     } else {
-        clasificacion = "Excelente";
-    }
+        requestStatus = "Solicitud aprobada";
 
-    let trustScore = 0;
-    let limitePermitido = monthlyLimit;
+        let reimbursableAmount = expenseAmount;
 
-    if (isPreferredSupplier) {
-        trustScore += 15;
-    }
-
-    if (isUrgent) {
-        trustScore += 5;
-        limitePermitido += limitePermitido * 0.1
-    }
-
-    if (hasPendingDocuments) {
-        trustScore -= 20;
-    }
-
-    const nuevoAcumulado = monthlyPurchased + orderAmount;
-
-    let orderStatus = "";
-    let paymentStatus = "";
-    
-    if (orderAmount > availableBudget) {
-        orderStatus = "Orden rechazada - Presupuesto insuficiente";
-        console.log(`Estado de orden: ${orderStatus}`);
-    } else if (nuevoAcumulado > limitePermitido) {
-        orderStatus = "Orden rechazada - Límite mensual excedido";
-        console.log(`Estado de orden: ${orderStatus}`);
-    } else if (clasificacion === "Riesgoso") {
-        orderStatus = "Orden rechazada - Proveedor riesgoso";
-        console.log(`Estado de orden: ${orderStatus}`);
-    } else if (clasificacion === "Regular" && trustScore < 0) {
-        orderStatus = "Orden rechazada - Confianza insuficiente";
-        console.log(`Estado de orden: ${orderStatus}`);
-    } else {
-
-        orderStatus = "Orden aprobada";
-
-        if (hasPaymentIssue === true) {
-            paymentStatus = "Pago bloqueado"
-        } else {
-            paymentStatus = "Pago autorizado"
+        if (reimbursableAmount > maxReimbursable) {
+            reimbursableAmount = maxReimbursable;
         }
 
-        if (paymentStatus === "Pago autorizado") {
-            const presupuestoRestante = availableBudget - orderAmount;
-            console.log(`Proveedor: ${supplier}
-                        Monto: ${orderAmount}
-                        Presupuesto disponible: ${availableBudget}
-                        Compras del mes: ${monthlyPurchased}
-                        Nuevo Acumulado: ${nuevoAcumulado}
-                        Presupuesto Restante: ${presupuestoRestante}
-                        Límite base: ${monthlyLimit} 
-                        Límite permitido: ${limitePermitido}
-                        Clasificación: ${clasificacion}
-                        Puntaje de confianza: ${trustScore}
-                        Estado de orden: ${orderStatus}
-                        Estado de pago: ${paymentStatus}`)
+        let porcentajeReembolso = 0;
+
+        if (expenseType === "Representación") {
+            porcentajeReembolso = 0.7;
+        } else if (expenseType === "Alimentación") {
+            porcentajeReembolso = 0.9;
+        } else if (expenseType === "Movilidad") {
+            porcentajeReembolso = 1;
+        }
+
+        reimbursableAmount = reimbursableAmount * porcentajeReembolso;
+
+        if (daysAfterExpense >= 31) {
+            reimbursableAmount -= reimbursableAmount * 0.25;
+        } else if (daysAfterExpense > 15 ) {
+            reimbursableAmount -= reimbursableAmount * 0.1;
+        }
+
+        let priority = "Normal";
+
+        if (isPriority) {
+            priority = "Alta";
+        }
+
+        if (hasBankIssue) {
+            paymentStatus = "Pago bloqueado";
+            console.log(`Empleado: ${employee}
+                        Monto aprobado para reembolso: S/ ${reimbursableAmount.toFixed(2)}
+                        Estado de solicitud: ${requestStatus}
+                        Estado de pago: ${paymentStatus}`);
         } else {
-            console.log(`Proveedor: ${supplier}
-                        Monto: ${orderAmount}
-                        Presupuesto disponible: ${availableBudget}
-                        Compras del mes: ${monthlyPurchased}
-                        Nuevo Acumulado: ${nuevoAcumulado}
-                        Límite base: ${monthlyLimit} 
-                        Límite permitido: ${limitePermitido}
-                        Clasificación: ${clasificacion}
-                        Puntaje de confianza: ${trustScore}
-                        Estado de orden: ${orderStatus}
-                        Estado de pago: ${paymentStatus}`)
+            paymentStatus = "Pago autorizado";
+            
+            console.log(`Empleado: ${employee}
+                        Gasto original: ${expenseAmount}
+                        Máximo reembolsable: ${maxReimbursable}
+                        Reembolso:  ${reimbursableAmount}
+                        Tipo de gasto: ${expenseType}
+                        Días desde el gasto: ${daysAfterExpense}
+                        Prioridad: ${priority}
+                        Monto aprobado para reembolso: ${reimbursableAmount}
+                        Estado de solicitud: ${requestStatus}
+                        Estado de pago: ${paymentStatus}`);
         }
     }
 }
-
-
-
